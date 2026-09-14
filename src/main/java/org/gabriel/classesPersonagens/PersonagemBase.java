@@ -6,6 +6,7 @@ import org.gabriel.classesMecanicas.Item;
 
 public class PersonagemBase {
     protected double dinheiro;
+    protected boolean isAlive;
     protected Inventario inventario;
     protected Atributos atributos;
     protected Cenario cenarioAtual;
@@ -21,6 +22,7 @@ public class PersonagemBase {
         this.inventario = new Inventario();
         this.dinheiro = 50.0;
         this.cenarioAtual = Cenario.DIALOGO;
+        this.isAlive = true;
     }
 
     public boolean temDinheiro(Item item) {
