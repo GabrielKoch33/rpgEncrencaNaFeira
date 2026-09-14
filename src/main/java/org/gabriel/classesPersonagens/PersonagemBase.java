@@ -3,6 +3,7 @@ package org.gabriel.classesPersonagens;
 import org.gabriel.classesMecanicas.Atributos;
 import org.gabriel.classesMecanicas.Inventario;
 import org.gabriel.classesMecanicas.Item;
+import org.gabriel.classesMonstros.MonstroBase;
 
 public class PersonagemBase {
     protected double dinheiro;
@@ -35,6 +36,17 @@ public class PersonagemBase {
 
     public void receberDinheiro(Item item) {
         this.dinheiro += item.getPreco();
+    }
+
+    // Para classes herdadas, devemos passar como tipo a classe Pai
+    public int atacar() {
+        int dado1 = (int) (Math.random() + (4 - 1)) + 1;
+        int dado2 = (int) (Math.random() + (4 - 1)) + 1;
+        if (dado1 == dado2) {
+            return this.atributos.getDano() + 5;
+        }
+        return this.atributos.getDano();
+
     }
 
     // Fazer métodos padrões de ataque, fugir, abrir inventário, pular diálogo, toma dano, esta vivo, etc...
