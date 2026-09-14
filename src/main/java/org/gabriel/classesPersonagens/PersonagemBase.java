@@ -3,7 +3,6 @@ package org.gabriel.classesPersonagens;
 import org.gabriel.classesMecanicas.Atributos;
 import org.gabriel.classesMecanicas.Inventario;
 import org.gabriel.classesMecanicas.Item;
-import org.gabriel.classesMonstros.MonstroBase;
 
 public class PersonagemBase {
     protected double dinheiro;
@@ -44,10 +43,32 @@ public class PersonagemBase {
         int dado2 = (int) (Math.random() + (4 - 1)) + 1;
         if (dado1 == dado2) {
             return this.atributos.getDano() + 5;
+            // Mecânica simples de dano crítico
         }
         return this.atributos.getDano();
-
     }
+
+    public boolean fugir() {
+        int dado1 = (int) (Math.random() * 10) + 1;
+        return dado1 == 7;
+    }
+
+    // Avaliando possível necessidade desse método
+    public void abrirInventario () {
+        this.inventario.exibirInventario();
+    }
+
+    public void tomarDano(int danoInimigo) {
+        // Não se pode usar -=, --, += ou ++ em retorno de métodos getters
+        int vidaReduzida = this.atributos.getVitalidade() - danoInimigo;
+        if (vidaReduzida > 0) {
+            this.atributos.setVitalidade(vidaReduzida);
+        } else {
+            this.atributos.setVitalidade(0);
+            this.isAlive = false;
+        }
+    }
+
 
     // Fazer métodos padrões de ataque, fugir, abrir inventário, pular diálogo, toma dano, esta vivo, etc...
 }

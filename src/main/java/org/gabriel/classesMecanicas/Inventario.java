@@ -46,5 +46,16 @@ public class Inventario {
         int pesoMaxInventario = 25;
         return pesoMaxInventario - calculaPesoAtual();
     }
+
+    public void exibirInventario () {
+        if (this.inventario.isEmpty()) {
+            System.out.println("Inventário vazio, nada para exibir!");
+        } else {
+            System.out.println(" ID | NOME");
+            for (Integer itemId : this.inventario.keySet()) {
+                System.out.println(" " + itemId + " " + this.inventario.get(itemId));
+            }
+        }
+    }
 }
 

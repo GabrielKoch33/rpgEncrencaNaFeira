@@ -11,5 +11,4 @@ public class Guerreiro extends PersonagemBase {
         this.atributos = new Atributos(role);
         // new se encarrega de retornar ao objeto recém-criado os valores guardados com 'this.' na subclasse
     }
-
 }

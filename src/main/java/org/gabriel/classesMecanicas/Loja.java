@@ -30,6 +30,9 @@ public class Loja {
         return estoque.remove(id);
     }
 
+    /**
+     * Retorna um objeto para que métodos do inventário guardem o item
+     * */
     public Item pegaItemDaLoja(int id) {
         if (!estaVazia() && contemItem(id)) {
             return estoque.get(id);
