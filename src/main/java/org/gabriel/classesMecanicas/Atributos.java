@@ -65,7 +65,42 @@ public class Atributos {
                 this.carisma = 10;
                 this.sorte = 6;
                 break;
+            //-----------------------------------//
+            case "Goblin":
+                this.vitalidade = 50;
+                this.dano = 50;
+                this.agilidade = 40;
+                this.resistenciaFisica = 30;
+                this.resistenciaMentalMagica = 20;
+                this.mana = 0;
+                break;
 
+            case "Ogro":
+                this.vitalidade = 70;
+                this.dano = 50;
+                this.agilidade = 40;
+                this.resistenciaFisica = 30;
+                this.resistenciaMentalMagica = 20;
+                this.mana = 0;
+                break;
+
+            case "Ritualista":
+                this.vitalidade = 60;
+                this.dano = 50;
+                this.agilidade = 40;
+                this.resistenciaFisica = 30;
+                this.resistenciaMentalMagica = 20;
+                this.mana = 0;
+                break;
+
+            case "Chefe":
+                this.vitalidade = 100;
+                this.dano = 70;
+                this.agilidade = 40;
+                this.resistenciaFisica = 30;
+                this.resistenciaMentalMagica = 20;
+                this.mana = 0;
+                break;
             default:
                 break;
         }
