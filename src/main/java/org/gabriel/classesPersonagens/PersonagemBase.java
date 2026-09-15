@@ -5,7 +5,9 @@ import org.gabriel.classesMecanicas.Inventario;
 import org.gabriel.classesMecanicas.Item;
 
 public class PersonagemBase {
+    protected String nomePlayer;
     protected double dinheiro;
+    protected String classePlayer;
     protected boolean isAlive;
     protected Inventario inventario;
     protected Atributos atributos;
@@ -18,9 +20,10 @@ public class PersonagemBase {
         INVENTARIO,
     }
 
-    public PersonagemBase() {
+    public PersonagemBase(String classe) {
         this.inventario = new Inventario();
         this.dinheiro = 50.0;
+        this.classePlayer = classe;
         this.cenarioAtual = Cenario.DIALOGO;
         this.isAlive = true;
     }
@@ -67,6 +70,62 @@ public class PersonagemBase {
             this.atributos.setVitalidade(0);
             this.isAlive = false;
         }
+    }
+
+    public String getNomePlayer() {
+        return nomePlayer;
+    }
+
+    public double getDinheiro() {
+        return dinheiro;
+    }
+
+    public String getClassePlayer() {
+        return classePlayer;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public Inventario getInventario() {
+        return inventario;
+    }
+
+    public Atributos getAtributos() {
+        return atributos;
+    }
+
+    public Cenario getCenarioAtual() {
+        return cenarioAtual;
+    }
+
+    public void setNomePlayer(String nomePlayer) {
+        this.nomePlayer = nomePlayer;
+    }
+
+    public void setDinheiro(double dinheiro) {
+        this.dinheiro = dinheiro;
+    }
+
+    public void setClassePlayer(String classe) {
+        this.classePlayer = classe;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
+    }
+
+    public void setAtributos(Atributos atributos) {
+        this.atributos = atributos;
+    }
+
+    public void setCenarioAtual(Cenario cenarioAtual) {
+        this.cenarioAtual = cenarioAtual;
     }
 }
 

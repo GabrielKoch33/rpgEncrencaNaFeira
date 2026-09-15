@@ -3,6 +3,10 @@ package org.gabriel.classesMecanicas;
 public class Menus {
     private final int repeat = 30;
 
+    public void menuEscolheClasse () {
+
+    }
+
     public void menuInventario() {
         System.out.println("-".repeat(repeat));
         System.out.println("[1] - DESCARTAR ITEM");
