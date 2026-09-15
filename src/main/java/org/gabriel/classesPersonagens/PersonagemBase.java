@@ -37,7 +37,6 @@ public class PersonagemBase {
         this.dinheiro += item.getPreco();
     }
 
-    // Para classes herdadas, devemos passar como tipo a classe Pai
     public int atacar() {
         int dado1 = (int) (Math.random() + (4 - 1)) + 1;
         int dado2 = (int) (Math.random() + (4 - 1)) + 1;
@@ -59,7 +58,8 @@ public class PersonagemBase {
     }
 
     public void tomarDano(int danoInimigo) {
-        // Não se pode usar -=, --, += ou ++ em retorno de métodos getters
+        // Não se pode usar -=, --, += ou ++ diretamente em retorno de métodos getters,
+        // até porque essa sintaxe necessita de uma variável à esquerda
         int vidaReduzida = this.atributos.getVitalidade() - danoInimigo;
         if (vidaReduzida > 0) {
             this.atributos.setVitalidade(vidaReduzida);
@@ -68,8 +68,5 @@ public class PersonagemBase {
             this.isAlive = false;
         }
     }
-
-
-    // Fazer métodos padrões de ataque, fugir, abrir inventário, pular diálogo, toma dano, esta vivo, etc...
 }
 
