@@ -20,21 +20,21 @@ public class Sessao {
     public static final String RESET = "\u001B[0m";
 
     public static void main(String[] args) {
-        Item fruta = new Item("Maçã", "Uma deliciosa fruta fresca", Item.itemTipos.CURA, 1,15);
-        Item guardaChuva = new Item("Guarda-Chuva", "Um guarda-chuva bem pontudo", Item.itemTipos.ARMA, 5,20);
+        Item fruta = new Item("Maçã", "Uma deliciosa fruta fresca", Item.itemTipos.CURA, 1, 15);
+        Item guardaChuva = new Item("Guarda-Chuva", "Um guarda-chuva bem pontudo", Item.itemTipos.ARMA, 5, 20);
         Scanner ler = new Scanner(System.in);
         int opcao;
         String nome;
 
-        System.out.println(AMARELO + "***Sons de despertados apitando***"+ RESET);
+        System.out.println(AMARELO + "***Sons de despertados apitando***" + RESET);
         System.out.println("-> Q-Que horas são?!? Só 7 AM? Poxa, hoje é sábado, esqueci de configurar o despertador...");
         System.out.println("-> Mas nossa, que noite boa! Cheguei até a sonhar...");
         System.out.println("-> O que eu estava fazendo no meu sonho mesmo?");
         System.out.println("-".repeat(30));
         System.out.println(VERMELHO + "[1] - Eu estava lutando contra alguém! (Guerreiro)" + RESET);
-        System.out.println(VERDE    + "[2] - Eu estava fugindo da polícia! (Bandido)"      + RESET);
-        System.out.println(MAGENTA  + "[3] - Eu estava lançando magias! (Feiticeiro)"      + RESET);
-        System.out.println(CIANO    + "[4] - Eu estava defendendo meu castelo! (Arqueiro)" + RESET);
+        System.out.println(VERDE + "[2] - Eu estava fugindo da polícia! (Bandido)" + RESET);
+        System.out.println(MAGENTA + "[3] - Eu estava lançando magias! (Feiticeiro)" + RESET);
+        System.out.println(CIANO + "[4] - Eu estava defendendo meu castelo! (Arqueiro)" + RESET);
         System.out.println("-".repeat(30));
 
         while (true) {
@@ -56,7 +56,7 @@ public class Sessao {
         Inventario mochila = player.getInventario();
 
         ler.nextLine();
-        System.out.println("-> Ah é verdade, foi com isso! Eu era um " + player.getClassePlayer() +"!");
+        System.out.println("-> Ah é verdade, foi com isso! Eu era um " + player.getClassePlayer() + "!");
         System.out.print("-> As pessoas daquele sonho me chamavam de: ");
 
         while (true) {
@@ -69,12 +69,12 @@ public class Sessao {
             break;
         }
 
-        String formatNome = "["+player.getNome()+"]";
+        String formatNome = "[" + player.getNome() + "]";
         String formatNPC = "[NPC]";
 
         System.out.println(formatNome + ", afinal esse é meu nome HAHAHA");
         System.out.println("-> Minha mãe saiu para ir no salão ou algo assim, não lembro, enfim, ela me deu R$" +
-                           player.getDinheiro() + ", preciso ir na feira comprar umas coisas para o almoço");
+                player.getDinheiro() + ", preciso ir na feira comprar umas coisas para o almoço");
         System.out.println(formatNome + "Mas antes, vou pegar algo na geladeira para comer enquanto caminho");
         System.out.println(formatNome + "Também não posso esquecer do meu guarda-chuva, ouvi dizer que vai cair um toró!");
 
@@ -86,7 +86,7 @@ public class Sessao {
 
         System.out.println(AMARELO + "**No caminho para a feirinha**" + RESET);
         MonstroBase goblin = new MonstroBase("Goblin Vingativo", "Goblin", false);
-        String formatGoblin = "["+goblin.getNomeMonstro()+"]";
+        String formatGoblin = "[" + goblin.getNomeMonstro() + "]";
 
         System.out.println(formatNPC + "Alguém me ajude, por favor!");
         System.out.println(formatNome + "Ei! Deixe essa moça em paz!");
@@ -100,5 +100,5 @@ public class Sessao {
             }
             player.setAlive(false);
         }
-
+    }
 }// plot final: era uma criança sonhando em ser um adulto num mundo de rpg
