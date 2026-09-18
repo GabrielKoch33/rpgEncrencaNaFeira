@@ -3,27 +3,44 @@ package org.gabriel.classesMecanicas;
 public class Item {
     private String nome;
     private String descricao;
-    private String tipo;
+    private itemTipos tipo;
     private int peso;
     private double preco;
-    private int numeroDeUsos = 9999;
-    private boolean isDefault = false;
+    private int numeroDeUsos;
+    private boolean isDefault;
+    private int dano;
+    private int cura;
 
-    /**Caso queiramos definir um número máximo de usos e que o item seja permanente do personagem utilizamos esse construtor*/
-    public Item(String nome, String descricao, String tipo, int peso, double preco, int numeroDeUsos, boolean isDefault ){
-        this(nome, descricao ,tipo, peso, preco);
-        this.numeroDeUsos = numeroDeUsos;
-        this.isDefault = isDefault;
-
-    }
-
-    /**Caso o número de usos seja 'infinito' ou os itens não são 'defaults', utilizamos esse*/
-    public Item(String nome, String descricao,String tipo, int peso, double preco){
+    /**Itens de uso ilimitado e defaults*/
+    public Item (String nome, String descricao, itemTipos tipo, int peso,int valor) {
         this.nome = nome;
         this.descricao = descricao;
         this.tipo = tipo;
         this.peso = peso;
+        if (tipo.equals(itemTipos.CURA)) {
+            this.cura = valor;
+        } else if (tipo.equals(itemTipos.ARMA)) {
+            this.dano = valor;
+        }
+        this.preco = 0.0;
+        this.numeroDeUsos = 1000;
+        this.isDefault = true;
+    }
+    /**Sobrescreve o valor padrão de (preço, num_usos e default) do construtor antigo para um personalizado**/
+    public Item (String nome, String descricao, itemTipos tipo, int peso, double preco, int valor, int numeroDeUsos, boolean isDefault){
+        this(nome, descricao, tipo, peso, valor);
         this.preco = preco;
+        this.numeroDeUsos = numeroDeUsos;
+        this.isDefault = isDefault;
+    }
+
+    public enum itemTipos {
+        CURA,
+        ARMA
+    }
+
+    public void decresceUsoItem(Item item) {
+        item.setNumeroDeUsos(item.getNumeroDeUsos()-1);
     }
 
     public String getNome() {
@@ -42,11 +59,11 @@ public class Item {
         this.descricao = descricao;
     }
 
-    public String getTipo() {
+    public itemTipos getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(itemTipos tipo) {
         this.tipo = tipo;
     }
 

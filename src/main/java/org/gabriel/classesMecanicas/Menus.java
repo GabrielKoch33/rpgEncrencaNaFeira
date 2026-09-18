@@ -10,7 +10,8 @@ public class Menus {
     public void menuInventario() {
         System.out.println("-".repeat(repeat));
         System.out.println("[1] - DESCARTAR ITEM");
-        System.out.println("[2] - SAIR");
+        System.out.println("[2] - USAR ITEM");
+        System.out.println("[3] - SAIR");
         System.out.println("-".repeat(repeat));
     }
 
@@ -35,7 +36,7 @@ public class Menus {
         System.out.println("[2] - ESQUIVAR");
         System.out.println("[3] - DEFENDER");
         System.out.println("[4] - FUGIR");
-        System.out.println("[1] - USAR ITEM");
+        System.out.println("[5] - USAR ITEM");
         System.out.println("-".repeat(repeat));
     }
 }

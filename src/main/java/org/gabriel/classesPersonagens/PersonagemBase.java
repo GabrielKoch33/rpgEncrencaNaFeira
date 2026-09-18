@@ -12,8 +12,9 @@ public class PersonagemBase {
     protected Inventario inventario;
     protected Atributos atributos;
     protected Cenario cenarioAtual;
+    protected int MAXLIFE;
 
-    enum Cenario {
+    public enum Cenario {
         LOJA,
         DIALOGO,
         COMBATE,
@@ -72,7 +73,12 @@ public class PersonagemBase {
         }
     }
 
-    public String getNomePlayer() {
+
+    public int getMAXLIFE() {
+        return MAXLIFE;
+    }
+
+    public String getNome() {
         return nomePlayer;
     }
 
@@ -100,7 +106,7 @@ public class PersonagemBase {
         return cenarioAtual;
     }
 
-    public void setNomePlayer(String nomePlayer) {
+    public void setNome(String nomePlayer) {
         this.nomePlayer = nomePlayer;
     }
 

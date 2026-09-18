@@ -13,10 +13,14 @@ public class Inventario {
         this.inventario = new HashMap<>();
     }
 
-    public void guardarItem(Item item) {
-        this.inventario.put(this.ultimaChaveCriada, item);
-        this.ultimaChaveCriada++;
-        this.pesoAtual = calculaPesoAtual();
+    public boolean guardarItem(Item item) {
+        if (temEspaco(item)) {
+            this.inventario.put(this.ultimaChaveCriada, item);
+            this.ultimaChaveCriada++;
+            this.pesoAtual = calculaPesoAtual();
+            return true;
+        }
+        return false;
     }
 
     public boolean temEspaco(Item item) {
@@ -25,13 +29,21 @@ public class Inventario {
         return (this.inventario.size() < tamanhoMaxInventario) && (item.getPeso() < espacosLivres);
     }
 
-    public boolean descartarItem(int id) {
+    public boolean descartarItemSelecionado(int id) {
         if (this.inventario.isEmpty() || !inventario.containsKey(id)) {
             return false;
         }
         this.inventario.remove(id);
         this.pesoAtual = calculaPesoAtual();
         return true;
+    }
+
+
+    public void descartaAutomaticamente(int id) {
+        if (inventario.get(id).getNumeroDeUsos() == 0) {
+            this.inventario.remove(id);
+            this.pesoAtual = calculaPesoAtual();
+        }
     }
 
     public int calculaPesoAtual() {
@@ -51,9 +63,12 @@ public class Inventario {
         if (this.inventario.isEmpty()) {
             System.out.println("Inventário vazio, nada para exibir!");
         } else {
-            System.out.println(" ID | NOME");
+            System.out.println("-".repeat(73));
+            System.out.printf("%-3s %-20s %-50s%n", "ID", "NOME", "DESCRIÇÃO");
+            System.out.println("-".repeat(73));
             for (Integer itemId : this.inventario.keySet()) {
-                System.out.println(" " + itemId + " " + this.inventario.get(itemId));
+                Item item = this.inventario.get(itemId);
+                System.out.printf("%-3d %-20s %-50s%n", itemId, item.getNome(), item.getDescricao());
             }
         }
     }
