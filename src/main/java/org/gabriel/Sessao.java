@@ -71,9 +71,5 @@ public class Sessao {
         System.out.println(player.getNomePlayer() + ", afinal esse é meu nome HAHAHA");
         System.out.println("Minha mãe saiu para ir no salão ou algo assim, não lembro, enfim, ela me deu R$" +
                            player.getDinheiro() + ", preciso ir na feira comprar umas coisas para o almoço");
-
-
-
-
     }
 }// plot final: era uma criança sonhando em ser um adulto num mundo de rpg
