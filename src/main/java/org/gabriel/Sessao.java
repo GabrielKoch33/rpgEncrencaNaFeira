@@ -100,5 +100,5 @@ public class Sessao {
             }
             player.setAlive(false);
         }
-    }
+
 }// plot final: era uma criança sonhando em ser um adulto num mundo de rpg
